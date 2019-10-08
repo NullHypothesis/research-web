@@ -61,3 +61,39 @@ example projects:
 *   More coming soon. See also the "Research" section of the
     [volunteer](https://www.torproject.org/getinvolved/volunteer.html.en#Research)
     page for other topics.
+
+Anti-censorship
+---------------
+
+* Study how censors crawl [BridgeDB](https://bridges.torproject.org) by setting
+  up several bridges and distributing them over all of BridgeDB's distribution
+  mechanisms (using tor's `BridgeDistribution` option).  Continuously measure
+  the reachability of your bridges and determine when and how they are getting
+  blocked.
+  - We also want to understand how and whether benign third parties are using or
+    scraping Tor bridges. We have a [research project
+    sketch](https://bugs.torproject.org/30636#comment:33) to get you started.
+* Measure the reachability of our [Snowflake](https://snowflake.torproject.org)
+  broker and bridge.  Where in the world are they blocked?  And how?  This will
+  help us understand what countries and networks started paying attention to
+  Snowflake, and let volunteers know where Snowflake proxies will be
+  ineffective.
+* Reverse-engineer and study a deep packet inspection (DPI) system
+  [as outlined here](https://github.com/net4people/bbs/issues/15).
+  Understanding the capabilities of DPI systems lets us calibrate our threat
+  models and build obfuscation protocols that defend against concrete rather
+  than speculative attacks.
+* Understand what's happening with reported Shadowsocks blocking in China since
+  mid-September. Is it active probing?  Or large-scale flow analysis?  Something
+  else?
+* Understand the WebRTC fingerprint of Pion-WebRTC, in the style of [an earlier
+  analysis](https://trac.torproject.org/projects/tor/wiki/doc/Snowflake/Fingerprinting).
+* Evaluate the effectiveness of obfs4's simplistic "slap some padding onto
+  application data" approach and design a better traffic analysis defense. What
+  is the the "right" packet sending schedule (assuming no restrictions on
+  efficiency)?  Where a schedule is an algorithm that outputs a sequence like
+  "wait 50 ms, send 200 bytes, wait 4100 ms, send 1460 bytes, ..." Start by
+  proposing a strawman schedule to give us something to work with.  Ideally, we
+  would like to see an adversarial analysis: let one team develop a scheduler
+  (using their own collected traffic), and a different team evaluate it (using
+  their own collected traffic).
